@@ -31,20 +31,20 @@ app.get("/blogs", (req, res) => {
 
 app.post("/create_blogs", (req, res) => {
   const query =
-    "INSERT INTO blog_posts (`title`, `content`,`author`,)VALUES(?)";
-  const values = [
-    req.body.title,
-    req.body.content,
-    req.body.author,
-  ];
+    "INSERT INTO blog_posts (`title`, `content`,`author`)VALUES(?,?,?)";
+  const values = [req.body.title, req.body.content, req.body.author];
 
-  db.query(query, [values], (err, data) => {
-    if (err) return res.json(err);
-    res.status(201).send(data);
-    return res.json("blog has been created successfully");
-    
+  db.query(query, values, (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ error: "failed to create blog", err });
+    }
+    return res
+      .status(201)
+      .json({ message: "blog has been created successfully" });
   });
 });
+
 app.listen(Port, () => {
   console.log(`Server is running on port ${Port}`);
 });
