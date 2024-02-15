@@ -1,10 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchAllBlogs = async () => {
+      try {
+        const res = await axios.get("http:localhost:8080/blogs");
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  }, []);
 
   return (
     <>

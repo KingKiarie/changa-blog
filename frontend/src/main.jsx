@@ -9,7 +9,7 @@ import DeleteBlogs from "./pages/DeleteBlogs.jsx";
 
 const paths = createBrowserRouter([
   {
-    path: "/",
+    path: "/blogs",
     element: <App />,
   },
   {
