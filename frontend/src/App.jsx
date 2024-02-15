@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import { Link } from "react-router-dom";
 
 function App() {
   const [blogs, setBlogs] = useState([]);
@@ -31,6 +32,15 @@ function App() {
               <h2>{blog.title}</h2>
               <p>{blog.content}</p>
               <p>{blog.author}</p>
+              <div className="buttons">
+                <Link to={"/create_blog"}>
+                  <button>add</button>
+                </Link>
+                <Link to={"/delete_blog"}>
+                  <button>Delete</button>
+                </Link>
+                <button className="btn">Read now</button>
+              </div>
             </div>
           );
         })}
