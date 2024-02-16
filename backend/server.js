@@ -45,6 +45,23 @@ app.post("/create_blogs", (req, res) => {
   });
 });
 
+
+app.delete("/blogs/:id",(req,res)=>{
+  const blogId = req.params.id;
+
+  const q = "DELETE FROM blog_posts WHERE id = ? "
+
+  db.query(q,blogId,(err,data)=>{
+    if(err) return res.json(err)
+    return res.json("blog has been deleted", data)
+  })
+
+})
+
+app.put("add/:id",(req,res)=>{
+  
+})
+
 app.listen(Port, () => {
   console.log(`Server is running on port ${Port}`);
 });

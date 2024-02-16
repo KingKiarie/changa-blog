@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import { Link } from "react-router-dom";
 
-function App() {
+export default function App() {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -19,13 +19,22 @@ function App() {
     fetchAllBlogs();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete("http://localhost:8080/blogs/" + id);
+      window.location.reload();
+    } catch (e) {
+      console.log(e);
+    }
+  }; // Add this closing curly brace
+
   return (
     <>
       <h1>Changa blogs</h1>
       <div className="blogs">
         {blogs.map((blog) => {
           return (
-            <div className="bl og" key={blog.id}>
+            <div className="blog" key={blog.id}>
               {blog.cover_image && (
                 <img src={blog.cover_image} alt="cover-img" />
               )}
@@ -34,11 +43,15 @@ function App() {
               <p>{blog.author}</p>
               <div className="buttons">
                 <Link to={"/create_blog"}>
-                  <button>add</button>
+                  <button
+                    onClick={() => {
+                      handleUpdate;
+                    }}
+                  >
+                    add
+                  </button>
                 </Link>
-                <Link to={"/delete_blog"}>
-                  <button>Delete</button>
-                </Link>
+                <button onClick={() => handleDelete(blog.id)}>Delete</button>
                 <button className="btn">Read now</button>
               </div>
             </div>
@@ -48,5 +61,3 @@ function App() {
     </>
   );
 }
-
-export default App;
