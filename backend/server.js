@@ -45,22 +45,27 @@ app.post("/create_blogs", (req, res) => {
   });
 });
 
-
-app.delete("/blogs/:id",(req,res)=>{
+app.delete("/blogs/:id", (req, res) => {
   const blogId = req.params.id;
 
-  const q = "DELETE FROM blog_posts WHERE id = ? "
+  const q = "DELETE FROM blog_posts WHERE id = ? ";
 
-  db.query(q,blogId,(err,data)=>{
-    if(err) return res.json(err)
-    return res.json("blog has been deleted", data)
-  })
+  db.query(q, blogId, (err, data) => {
+    if (err) return res.json(err);
+    return res.json("blog has been deleted", data);
+  });
+});
 
-})
+app.put("/blogs/:id", (req, res) => {
+  const blogId = req.params.id;
 
-app.put("add/:id",(req,res)=>{
-  
-})
+  const q = "UPDATE FROM blog_posts WHERE id = ? ";
+
+  db.query(q, blogId, (err, data) => {
+    if (err) return res.json(err);
+    return res.json("blog has been updated", data);
+  });
+});
 
 app.listen(Port, () => {
   console.log(`Server is running on port ${Port}`);

@@ -1,0 +1,88 @@
+.header {
+  > h1 {
+    font-size: 55px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+}
+.content {
+  * > h2 {
+    font-size: 45px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .blog {
+    display: flex;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255, 0.3);
+    padding: 10px;
+    margin: 10px;
+    border: 0.5px solid #ffff;
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+
+    > p {
+      font-size: 25px;
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 200;
+      font-style: normal;
+    }
+    > h3 {
+      font-size: 25px;
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+    }
+  }
+  .button-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    > span {
+      height: 1px;
+      margin: 10px 0;
+      background-color: black;
+      width: 40vw;
+    }
+
+    > .btn {
+      margin-top: 5px;
+      width: 400px;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      font-size: 20px;
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    > .btn:hover {
+      transition: 0.3s;
+      background-color: black;
+      opacity: 20;
+    }
+  }
+}
