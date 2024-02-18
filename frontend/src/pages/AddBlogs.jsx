@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../pages/styles/styles.css";
 const AddBlogs = () => {
   const [blog, setBlogs] = useState({
     title: "",
@@ -17,19 +18,18 @@ const AddBlogs = () => {
 
   console.log(blog);
 
-  const handleSubmit = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     console.log(blog);
     try {
-      await axios.post("http://localhost:8080/create_blogs", blog);
+      await axios.put("http://localhost:8080/create_blogs", blog);
       navigate("/");
     } catch (err) {
       console.log(err);
     }
   };
 
-  
   return (
     <>
       <h1>Add new Blog</h1>
@@ -41,12 +41,14 @@ const AddBlogs = () => {
           name="title"
         />
         <input
-          type="text"
+          type="file"
+          accept="image/*"
           placeholder="cover_image"
           onChange={handleChange}
           name="cover_image"
         />
-        <input
+        <textarea
+          rows={10}
           type="text"
           placeholder="content"
           onChange={handleChange}
@@ -58,7 +60,7 @@ const AddBlogs = () => {
           onChange={handleChange}
           name="author"
         />
-        <button onClick={handleSubmit}>Add</button>
+        <button onClick={handleUpdate}>Add</button>
       </div>
     </>
   );

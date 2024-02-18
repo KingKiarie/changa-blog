@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
+  cursor: url(/cursor-svgrepo-com.svg), auto;
   background-color: #ffe53b;
-  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 75%);
 }

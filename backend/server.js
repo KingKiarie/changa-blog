@@ -59,9 +59,16 @@ app.delete("/blogs/:id", (req, res) => {
 app.put("/blogs/:id", (req, res) => {
   const blogId = req.params.id;
 
-  const q = "UPDATE FROM blog_posts WHERE id = ? ";
+  const q =
+    "UPDATE blog_posts SET `title`=?, `desc`=? , `price`=? `cover_image`=? WHERE id =?  ";
 
-  db.query(q, blogId, (err, data) => {
+  const values = [
+    req.body.title,
+    req.body.desc,
+    req.body.price,
+    req.body.cover_image,
+  ];
+  db.query(q, [...values, blogId], (err, data) => {
     if (err) return res.json(err);
     return res.json("blog has been updated", data);
   });

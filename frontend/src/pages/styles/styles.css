@@ -1,0 +1,72 @@
+h1 {
+  font-size: 50px;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  text-align: center;
+  justify-content: center;
+}
+.form {
+  > input {
+    margin: 10px;
+    padding: 5px;
+    width: 400px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  > textarea {
+    margin: 10px;
+    padding: 5px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 2px solid;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  >button{
+    margin: 5px 0;
+      width: 400px;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      font-size: 20px;
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    > button:hover {
+      transition: 0.3s;
+      background-color: rgb(134, 190, 29);
+      opacity: 20;
+    }
+  }
+}
