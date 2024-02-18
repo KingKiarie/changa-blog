@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, useLocation } from "react-router-dom";
 import "../pages/styles/styles.css";
 const AddBlogs = () => {
   const [blog, setBlogs] = useState({
@@ -11,6 +12,7 @@ const AddBlogs = () => {
   });
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = (e) => {
     setBlogs({ ...blog, [e.target.name]: e.target.value });

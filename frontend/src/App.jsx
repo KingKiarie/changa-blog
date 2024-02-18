@@ -62,11 +62,11 @@ export default function App() {
 
                     <button
                       className="btn"
-                      // onClick={() => {
-                      //   handleUpdate;
-                      // }}
+                      onClick={() => {
+                        handleUpdate;
+                      }}
                     >
-                      {/* <Link to={`/update/${blog.id}`}>add</Link> */}Add Blog
+                      <Link to={`/update/${blog.id}`}>Update blog</Link>
                     </button>
 
                     <button

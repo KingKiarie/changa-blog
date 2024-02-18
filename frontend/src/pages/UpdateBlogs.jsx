@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const updateBlogs = () => {
   const [blog, setBlogs] = useState({
     title: "",
@@ -10,19 +10,23 @@ const updateBlogs = () => {
   });
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const blog_id = location.pathname.split("/")[2];
 
   const handleChange = (e) => {
-    setBlogs({ ...blog, [e.target.name]: e.target.value });
+    setBlogs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   console.log(blog);
+  console.log(location.pathname.split("/")[2]);
 
-  const handleSubmit = async (e,id) => {
+  const handleSubmit = async (e, id) => {
     e.preventDefault();
 
     console.log(blog);
     try {
-      await axios.put("http://localhost:8080/blog" + id);
+      await axios.put("http://localhost:8080/blog" + blog_id, blog);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -31,7 +35,7 @@ const updateBlogs = () => {
 
   return (
     <>
-      <h1>Update Blog</h1>
+      <h1>Update Blog </h1>
       <div className="form">
         <input
           type="text"
@@ -40,16 +44,18 @@ const updateBlogs = () => {
           name="title"
         />
         <input
-          type="text"
+          type="file"
           placeholder="cover_image"
           onChange={handleChange}
+          accept="image/*"
           name="cover_image"
         />
-        <input
+        <textarea
           type="text"
           placeholder="content"
           onChange={handleChange}
           name="content"
+          rows={6}
         />
         <input
           type="text"
@@ -57,7 +63,7 @@ const updateBlogs = () => {
           onChange={handleChange}
           name="author"
         />
-        <button onClick={handleSubmit}>Update</button>
+        <button onClick={handleSubmit}>Update Blog</button>
       </div>
     </>
   );
