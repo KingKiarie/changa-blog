@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar";
 const updateBlogs = () => {
   const [blog, setBlogs] = useState({
     title: "",
@@ -35,6 +36,9 @@ const updateBlogs = () => {
 
   return (
     <>
+      <nav>
+        <Navbar />
+      </nav>
       <h1>Update Blog </h1>
       <div className="form">
         <input

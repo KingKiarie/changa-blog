@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { useNavigate, useLocation } from "react-router-dom";
 import "../pages/styles/styles.css";
+import Navbar from "../components/Navbar";
 const AddBlogs = () => {
   const [blog, setBlogs] = useState({
     title: "",
@@ -34,6 +35,9 @@ const AddBlogs = () => {
 
   return (
     <>
+      <nav>
+        <Navbar />
+      </nav>
       <h1>Add new Blog</h1>
       <div className="form">
         <input

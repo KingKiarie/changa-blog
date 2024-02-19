@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   const [blogs, setBlogs] = useState([]);
@@ -39,6 +40,9 @@ export default function App() {
 
   return (
     <>
+      <nav>
+        <Navbar />
+      </nav>
       <body>
         <div className="content">
           <div className="header">

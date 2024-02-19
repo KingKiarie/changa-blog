@@ -1,7 +1,7 @@
 import React from "react";
 
-const blogs = () => {
-  return <div>blogs</div>;
+const Blogs = () => {
+  return <div>Blogs</div>;
 };
 
-export default blogs;
+export default Blogs;
