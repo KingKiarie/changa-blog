@@ -63,6 +63,14 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
+              <div className="nav-footer">
+                <div className="links">
+                  <Link>Privacy policy</Link>
+                  <Link>Cookie Policy</Link>
+                  <Link>Terms and conditions</Link>
+                  <Link>Proxy provider</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
